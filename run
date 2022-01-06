@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PHAN_URL=https://github.com/phan/phan/releases/download/5.3.1/phan.phar
+PHAN_SHA256=fda3db72e276bad7d4ca95f4f4e705338137485088a0d34b447f475aea8b827c
+
+repo="$(cd "$(dirname "$0")" && pwd)"
+phan="$repo/phan.phar"
+
+if [[ ! -f "$phan" ]]; then
+	tmp="$(mktemp)"
+	cleanup() { rm -f "$tmp"; }
+	trap cleanup EXIT
+
+	wget -q -O "$tmp" "$PHAN_URL"
+	if ! sha256sum --quiet -c <<<"$PHAN_SHA256 $tmp"; then
+		echo "Could not verify phan.phar integrity" >&2
+		exit 1
+	fi
+	mv "$tmp" "$phan"
+fi
+
+exec php "$phan"

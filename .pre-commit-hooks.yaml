@@ -1,0 +1,6 @@
+- id: phan
+  name: phan
+  language: script
+  entry: run
+  files: '[^/]\.php$'
+  pass_filenames: false
