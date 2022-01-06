@@ -1,5 +1,6 @@
 - id: phan
   name: phan
+  description: runs the Phan static analyzer for PHP.
   language: script
   entry: run
   files: '[^/]\.php$'
