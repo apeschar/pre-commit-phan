@@ -6,7 +6,7 @@ To use this, [install pre-commit][pre-commit]. Then add to your
 ```
 repos:
   - repo: https://github.com/apeschar/pre-commit-phan
-    rev: fa6fa232b28cd13a55b33d0fabf15948d688f19e
+    rev: c3d0c145f75fbec6617bf2a77e48e258736b95f8
     hooks:
       - id: phan
 ```
