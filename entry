@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -eu
+
+exec /opt/phan/vendor/bin/phan --no-progress-bar

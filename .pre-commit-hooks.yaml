@@ -1,7 +1,7 @@
 - id: phan
   name: phan
   description: runs the Phan static analyzer for PHP.
-  language: script
-  entry: run
+  language: docker
+  entry: /entry
   files: '[^/]\.php$'
   pass_filenames: false
